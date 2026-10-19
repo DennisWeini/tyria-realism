@@ -1,0 +1,36 @@
+name: Attach reviewed toolkit to release
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing release tag matching data/project.json
+        required: true
+permissions:
+  contents: write
+jobs:
+  package:
+    runs-on: windows-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.tag }}
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - name: Verify release version
+        shell: pwsh
+        run: |
+          $v=(Get-Content data/project.json -Raw | ConvertFrom-Json).version
+          if($env:RELEASE_TAG -ne "v$v"){throw 'Release tag does not match project version.'}
+      - run: dotnet run --project src/TyriaLab -c Release -- selftest
+      - run: ./scripts/Build-Release.ps1
+        shell: pwsh
+      - name: Upload toolkit, checksums and Nexus text
+        shell: pwsh
+        run: gh release upload "$env:RELEASE_TAG" dist/*.zip dist/SHA256SUMS.txt docs/NEXUS-DESCRIPTION.txt --clobber
+

@@ -1,0 +1,40 @@
+[center][size=6][b]TYRIA REALISM[/b][/size]
+Experimental graphics toolkit · 0.9.0-preview.1 · updated 2026-10-19[/center]
+
+[b]CURRENT SOURCE, DOWNLOADS AND TEST STATUS[/b]
+[url=https://github.com/DennisWeini/tyria-realism]GitHub repository[/url] | [url=https://github.com/DennisWeini/tyria-realism/releases]Versioned downloads[/url] | [url=https://dennisweini.github.io/tyria-realism/]Project page[/url] | [url=https://github.com/DennisWeini/tyria-realism/blob/main/docs/COMPATIBILITY.md]Current hardware matrix[/url]
+
+[b]WHAT CHANGED[/b]
+SDR/ReShade looks, an original local-detail shader, Elora-inspired comparison profiles and an optional AMD neural route. A separate RenoDX SDR branch was built and tested in limited scenarios; its source patch is developer material, not an automatically installed release component. This is not native NVIDIA DLSS 5, DLSS Super Resolution, FSR4, new textures or ray tracing.
+
+[b]TESTED HARDWARE[/b]
+AMD Radeon RX 9070 XT 16 GB, Ryzen 7 5800X, Windows 11 Pro, driver32.0.32015.2008, GW2 DX11 at2560x1440 SDR. Real neural inference and separate earlier AFMF runs were observed. Image improvement was often subtle. Earlier Balanced logs showed about5.33–5.43ms neural GPU cost; this is not a universal cost/FPS promise or a measurement of the newest combined look.
+
+[b]POSSIBLE HARDWARE — NOT TESTED HERE[/b]
+Other Radeon RX9000/RDNA4 cards are candidates for this backend. Radeon RX7000 and older, NVIDIA GeForce and Intel Arc may run the visual-only effects, but are not supported by this pinned AMD neural backend. Windows10, HDR, other resolutions and Linux/Proton are not validated by this project.
+
+[b]INSTALLATION[/b]
+1. Close GW2. Download the matching current toolkit file from this page or GitHub Releases and extract it completely.
+2. Run Setup.cmd inside _TyriaRealism. Vortex only deploys the toolkit folder; runtime installation is a separate step. Manual executable selection is available. Vortex extension support is not guaranteed for every setup.
+3. Visual-only comparison requires an existing reviewed ReShade installation and retrieves pinned shader sources. It does not require a NVIDIA model.
+4. Optional neural setup accepts your own compatible unchanged DLL or a separately chosen RHI download. Unknown hashes and invalid signatures are rejected. Existing unmanaged proxy files stop setup.
+5. Start in a safe landscape and allow first-run network compilation. Home opens ReShade. F6 toggles neural only in profiles containing the neural feeder; F5 A/B capture is likewise profile/backend dependent.
+
+[b]MODEL FILES AND SOURCES[/b]
+No NVIDIA DLL, model weights or game files are in our package. Default: supply a suitable DLL from a source you are entitled to use. Optional: [url=https://github.com/RankFTW/rhi-repo/releases/tag/dlssnr-310.8.0]RHI310.8.0 release[/url], a third-party source, not NVIDIA. Its file hashes/signature were verified; that does not establish distribution/use permission. No matching NR DLL was found in the checked public NVIDIA DLSS/Streamline main file trees on2026-10-19. Ordinary DLSS DLLs are not substitutes. [url=https://github.com/DennisWeini/tyria-realism/blob/main/docs/MODEL-SOURCES.md]Full source and license boundaries[/url].
+
+[b]VISUAL PROFILES[/b]
+Balanced: Reinhard, BloomingHDR, LocalContrast. Quality-Test adds NeoSSAO and needs a valid depth buffer. These are reduced Elora-inspired profiles, not the full original preset. Multiple AO/sharpening stacks were omitted. Shader source downloads keep their original credits. REST HUD protection is not included or validated with our current stack; inspect HUD/nameplates. Additional bloom can overexpose snow and wood.
+
+[b]TEST BOUNDARIES[/b]
+116 GW2 shaders compiled for the RenoDX SDR experiment; actual shader replacement and world-only grading were shown in game. Both add-ons and over500 neural frames ran in a separate720p combination harness. This does not prove combined GW2 image quality, camera-motion stability, HDR or AFMF compatibility. The four Elora-comparison shaders compiled at runtime; latest-look FPS and broad depth/HUD acceptance remain incomplete.23 native checks passed in the current source. Download checks and corrupt-archive rejection passed. Full new-install and Vortex matrices are incomplete.
+
+[b]UNINSTALL / ROLLBACK[/b]
+Close GW2. Run Uninstall.cmd from the same toolkit folder. Restore visual changes first, then remove the neural runtime if installed. Only afterwards disable/remove the toolkit in Vortex. Keep backups until the prior setup works. The toolkit does not replace Gw2-64.exe, drivers or antivirus settings. Existing custom stacks may need manual reconciliation.
+
+[b]UPDATES[/b]
+GitHub is the current source of truth. The project page and documentation are generated from one compatibility/status file. Check-Updates.ps1 reports available versions; no silent game update or unreviewed latest-dependency replacement occurs. Nexus descriptions/files are versioned snapshots and must be updated for each release; follow the GitHub links for newer status.
+
+[b]CREDITS / LIMITS[/b]
+Tyria original code MIT; DLSSNR-AMD, ReShade, RenoDX/Voosh and Elora retain their own licenses. No affiliation or endorsement by ArenaNet, NVIDIA or AMD. No account/anti-cheat approval is claimed. [url=https://github.com/DennisWeini/tyria-realism/blob/main/THIRD-PARTY-NOTICES.md]Credits and third-party notices[/url].
+

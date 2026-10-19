@@ -1,0 +1,25 @@
+name: Compatibility or visual issue
+description: Report a reproducible result without sharing personal logs or proprietary files.
+body:
+  - type: input
+    id: gpu
+    attributes:
+      label: GPU and VRAM
+    validations:
+      required: true
+  - type: input
+    id: driver
+    attributes:
+      label: Windows and GPU driver version
+  - type: input
+    id: profile
+    attributes:
+      label: Toolkit version, profile, resolution and SDR/HDR
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: What happened and how to reproduce
+      description: Include whether neural/AFMF was on. Redact account names, paths and chat before sharing screenshots. Never attach NVIDIA DLLs, model weights or game assets.
+

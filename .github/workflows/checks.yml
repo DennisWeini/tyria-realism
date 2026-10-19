@@ -1,0 +1,36 @@
+name: Validate and package
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - run: node tools/generate-docs.mjs
+      - run: node tools/audit.mjs
+      - run: dotnet run --project src/TyriaLab -c Release -- selftest
+      - name: PowerShell syntax
+        shell: pwsh
+        run: |
+          Get-ChildItem scripts/*.ps1 | ForEach-Object {
+            $tokens=$null; $errors=$null
+            [Management.Automation.Language.Parser]::ParseFile($_.FullName,[ref]$tokens,[ref]$errors) | Out-Null
+            if($errors.Count){throw ($errors -join ';')}
+          }
+      - run: ./scripts/Build-Release.ps1
+        shell: pwsh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reviewed-toolkit
+          path: |
+            dist/*.zip
+            dist/SHA256SUMS.txt
+            docs/NEXUS-DESCRIPTION.txt
+
