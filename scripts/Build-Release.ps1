@@ -11,7 +11,7 @@ $toolkit=Join-Path $stage '_TyriaRealism'
 New-Item -ItemType Directory -Force $toolkit | Out-Null
 foreach($dir in @('scripts','effects','presets','data','licenses')){if(Test-Path (Join-Path $root $dir)){Copy-Item (Join-Path $root $dir) $toolkit -Recurse}}
 New-Item -ItemType Directory -Force (Join-Path $toolkit 'docs') | Out-Null
-foreach($file in @('INSTALLATION.md','COMPATIBILITY.md','MODEL-SOURCES.md','NEXUS-DESCRIPTION.txt')){Copy-Item (Join-Path $root ('docs\'+$file)) (Join-Path $toolkit 'docs')}
+foreach($file in @('INSTALLATION.md','COMPATIBILITY.md','MODEL-SOURCES.md','NVIDIA-VARIANTS.md','NEXUS-DESCRIPTION.txt')){Copy-Item (Join-Path $root ('docs\'+$file)) (Join-Path $toolkit 'docs')}
 foreach($file in @('Setup.cmd','Uninstall.cmd','README.md','LICENSE','THIRD-PARTY-NOTICES.md')){Copy-Item (Join-Path $root $file) $toolkit}
 $files=Get-ChildItem $toolkit -Recurse -File
 if($files | Where-Object Extension -in '.dll','.exe','.bin','.addon64','.addon32','.log','.csv','.dmp','.zip'){throw 'Unexpected binary/private payload.'}
@@ -21,4 +21,3 @@ Compress-Archive -Path $toolkit -DestinationPath $zip
 $hash=(Get-FileHash $zip).Hash
 "$hash  $([IO.Path]::GetFileName($zip))" | Set-Content (Join-Path $OutputDirectory 'SHA256SUMS.txt')
 Write-Host "$zip ($hash)"
-

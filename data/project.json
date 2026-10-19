@@ -1,29 +1,33 @@
 {
   "name": "Tyria Realism",
-  "version": "0.9.0-preview.1",
+  "version": "0.10.0-preview.1",
   "updated": "2026-10-19",
   "status": "Experimental preview; individual components tested, full new-install matrix incomplete",
   "repository": "https://github.com/DennisWeini/tyria-realism",
   "nexus": "https://www.nexusmods.com/guildwars2/mods/7",
   "site": "https://dennisweini.github.io/tyria-realism/",
-  "description": "A reversible graphics toolkit for Guild Wars 2: SDR/ReShade looks, an optional experimental AMD neural path and documented compatibility.",
+  "description": "A reversible graphics toolkit for Guild Wars 2: low-cost SDR/ReShade looks, an experimental AMD RDNA4 neural path and a guarded NVIDIA RTX 50 feeder preparation.",
   "tested": [
     {"component":"Neural rendering","hardware":"AMD Radeon RX 9070 XT, 16 GB","environment":"Windows 11 Pro; Ryzen 7 5800X; DX11; 2560x1440 SDR; driver 32.0.32015.2008","result":"Real GW2 inference observed. Improvement is scene dependent and was often subtle; it is not a texture overhaul."},
     {"component":"RenoDX SDR experiment","hardware":"RX 9070 XT","environment":"GW2 DX11, 1440p SDR","result":"116 shaders compile; game shader replacements and world-only grading demonstrated. Experimental source patch; no ready-made binary bundled."},
     {"component":"RenoDX + neural combination","hardware":"RX 9070 XT","environment":"Separate DX11 1280x720 harness","result":"Both loaded and more than 500 neural frames completed. Joint GW2 quality, motion stability and AFMF acceptance remain incomplete."},
     {"component":"AFMF","hardware":"RX 9070 XT","environment":"Separate earlier GW2 DX11 runs, native and earlier Tyria setup","result":"AMD AFMF frames detected. An AMD Software UI restart resolved one inactive status. Latest look/combined stack has no full AFMF validation."},
     {"component":"Elora-inspired comparison","hardware":"RX 9070 XT","environment":"Four shaders in a separate DX11 harness; user screenshots from GW2","result":"Runtime shader compilation passed. New Balanced/Quality look has no controlled GW2 FPS or full depth/HUD acceptance yet."},
+    {"component":"NVIDIA RTX 50 feeder","hardware":"Static analysis and isolated validation only","environment":"DLSS5-Feeder 1.19.0 plus pinned LumeniteFX source; no NVIDIA test GPU available","result":"Official package hashes, PE architecture and dependency strings were checked. Installer requires RTX 50, signed user-supplied NVIDIA runtimes and exactly one external consumer. No GW2 neural frame was claimed."},
     {"component":"Installer and tooling","hardware":"Windows 11 x64","environment":"Isolated folders and current source build","result":"23 native self-checks passed; tested archive/hash/signature validation and rejection of corrupt dependency archives. This is not a fresh end-to-end test of every new release option."}
   ],
   "compatibility": [
     {"hardware":"RX 9070 XT","visual":"Tested in selected scenes","neural":"Tested experimentally","confidence":"tested, limited scope"},
     {"hardware":"Other Radeon RX 9000 / RDNA4","visual":"Expected with compatible DX11/ReShade driver","neural":"Backend target family; untested by this project","confidence":"candidate, not guaranteed"},
-    {"hardware":"Radeon RX 7000 and older","visual":"Possible for non-neural effects; untested here","neural":"Not supported by this pinned RDNA4 backend","confidence":"visual-only candidate"},
-    {"hardware":"NVIDIA GeForce / Intel Arc","visual":"Possible for non-neural effects; untested here","neural":"Not supported by this AMD backend; no alternative implemented","confidence":"visual-only candidate"},
+    {"hardware":"Radeon RX 6000 / RX 7000","visual":"Universal Lite profile available; hardware not tested here","neural":"No proven GW2 DX11 route in this package; RDNA4 backend does not target these cards","confidence":"visual-only candidate"},
+    {"hardware":"NVIDIA GeForce RTX 50","visual":"Universal Lite profile available; hardware not tested here","neural":"Guarded DLSS5-Feeder preparation implemented; live GW2 test still required","confidence":"implemented, untested on target GPU"},
+    {"hardware":"NVIDIA GeForce RTX 20 / 30 / 40","visual":"Universal Lite profile available; hardware not tested here","neural":"Requires a third-party GPU-modified proprietary NR DLL; manual research only, not downloaded or supported","confidence":"visual-only supported path"},
+    {"hardware":"Intel Arc / other GPUs","visual":"Universal Lite profile available; untested here","neural":"No neural route implemented","confidence":"visual-only candidate"},
     {"hardware":"Windows 10, HDR, Linux/Proton, other resolutions","visual":"Not validated by this project","neural":"No support claim for this Windows package","confidence":"untested"}
   ],
   "limits": [
-    "No native NVIDIA DLSS 5 integration, DLSS Super Resolution or FSR4 is implemented.",
+    "RTX 50 setup prepares a DLSS5-Feeder contract but has no project live test on NVIDIA hardware. It is not DLSS Super Resolution, FSR4 or a native GW2 engine integration.",
+    "RTX 20/30/40 neural rendering depends on an externally modified proprietary NVIDIA DLL whose safety, license and redistribution chain this project cannot establish.",
     "No new GW2 texture pack, ray tracing, geometry or BRDF replacement is included.",
     "Engine motion vectors are not proven. The latest combination test used neutral motion/depth guides; camera-motion artifacts need testing.",
     "REST is not included or validated with the RenoDX experiment. Global effects may modify the HUD.",
@@ -34,6 +38,7 @@
     {"name":"Own DLL from a game you are entitled to use","status":"Default path: exact accepted hash and valid NVIDIA signature required; no legal entitlement is inferred by the installer."},
     {"name":"RankFTW/rhi-repo 310.8.0","url":"https://github.com/RankFTW/rhi-repo/releases/tag/dlssnr-310.8.0","status":"Optional third-party download, explicitly selected. Integrity verified; NVIDIA authorization for this distribution/use is not established by the release page."},
     {"name":"Official NVIDIA SDKs","url":"https://github.com/NVIDIA/DLSS","status":"Checked 2026-10-19: no matching nvngx_dlssnr.dll found in the public DLSS/Streamline main file trees. Ordinary DLSS SR/RR DLLs are not substitutes."}
+    ,{"name":"RTX 50 user-supplied NVIDIA runtimes","url":"https://github.com/jlrouzies-fr/DLSS5-Feeder","status":"The guarded installer accepts only valid NVIDIA-signed nvngx_dlssnr.dll and nvngx_dlss.dll, plus one separately obtained consumer. Nothing proprietary is bundled."}
+    ,{"name":"RTX 20/30/40 modified NR DLL","url":"https://discord.com/invite/renodx","status":"DLSS5-Feeder currently points users to the RenoDX Discord DLSS5 channel. There is no stable public artifact and redistribution license verified by this project, so it is neither mirrored nor auto-downloaded."}
   ]
 }
-

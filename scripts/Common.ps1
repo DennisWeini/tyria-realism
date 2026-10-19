@@ -1,6 +1,10 @@
 function Resolve-Gw2Exe([string]$GameExe) {
     if ($GameExe -and (Test-Path -LiteralPath $GameExe -PathType Leaf)) {
-        return (Resolve-Path -LiteralPath $GameExe).Path
+        $resolved = (Resolve-Path -LiteralPath $GameExe).Path
+        if ([System.IO.Path]::GetFileName($resolved) -ine 'Gw2-64.exe') {
+            throw 'Die angegebene Datei heißt nicht Gw2-64.exe. Es wurde nichts verändert.'
+        }
+        return $resolved
     }
 
     # Vortex installs the toolkit as <GW2>\_TyriaRealism\scripts.
@@ -22,4 +26,3 @@ function Resolve-Gw2Exe([string]$GameExe) {
     }
     return (Resolve-Path -LiteralPath $dialog.FileName).Path
 }
-

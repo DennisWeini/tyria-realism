@@ -1,4 +1,8 @@
-param([string]$GameExe='', [switch]$Restore)
+param(
+ [string]$GameExe='',
+ [ValidateSet('Lite','Balanced','Quality')][string]$Profile='Lite',
+ [switch]$Restore
+)
 $ErrorActionPreference='Stop'
 . (Join-Path $PSScriptRoot 'Common.ps1')
 if(Get-Process Gw2-64 -ErrorAction SilentlyContinue){throw 'GW2 zuerst beenden.'}
@@ -34,7 +38,7 @@ foreach($entry in $manifest){
  Invoke-WebRequest -Uri $url -OutFile $path -UseBasicParsing
  if((Get-FileHash $path).Hash -ne $entry.sha256){throw "Shader-Pruefsumme stimmt nicht: $($entry.name)"}
 }
-$names=@('Tyria-Elora-Balanced.ini','Tyria-Elora-Quality-DepthTest.ini')
+$names=@('Tyria-Universal-Lite.ini','Tyria-Elora-Balanced.ini','Tyria-Elora-Quality-DepthTest.ini')
 foreach($name in $names){if(Test-Path (Join-Path $game $name)){throw 'Ein Zielpreset existiert bereits; nichts ueberschreiben.'}}
 New-Item -ItemType Directory -Force $backup | Out-Null
 Copy-Item $ini (Join-Path $backup 'ReShade.ini')
@@ -44,6 +48,6 @@ $files=@()
 foreach($entry in $manifest){$path=Join-Path $target $entry.name; Copy-Item (Join-Path $cache $entry.name) $path; $files+=@{path=('reshade-shaders\Shaders\TyriaEloraPublic\'+$entry.name);sha256=(Get-FileHash $path).Hash}}
 foreach($name in $names){$path=Join-Path $game $name; Copy-Item (Join-Path $root ('presets\'+$name)) $path; $files+=@{path=$name;sha256=(Get-FileHash $path).Hash}}
 @{files=$files;source='Elora v5.0.0 commit95eb5dc';date=(Get-Date -Format o)} | ConvertTo-Json -Depth 5 | Set-Content (Join-Path $backup 'receipt.json')
-Set-Content $ini ([regex]::Replace($text,'(?m)^PresetPath=.*$','PresetPath=.\Tyria-Elora-Balanced.ini'))
-Write-Host 'Balanced-Vergleich eingerichtet. Neural fuer den ersten Vergleich ausschalten. HUD/Depth/FPS im Spiel pruefen.'
-
+$selected=@{Lite='Tyria-Universal-Lite.ini';Balanced='Tyria-Elora-Balanced.ini';Quality='Tyria-Elora-Quality-DepthTest.ini'}[$Profile]
+Set-Content $ini ([regex]::Replace($text,'(?m)^PresetPath=.*$',('PresetPath=.\'+$selected)))
+Write-Host "$Profile-Profil eingerichtet. Neural fuer den ersten Vergleich ausschalten. HUD/Depth/FPS im Spiel pruefen."

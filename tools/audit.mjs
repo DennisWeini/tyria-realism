@@ -6,6 +6,6 @@ function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){if(e
 walk(root);
 const p=JSON.parse(fs.readFileSync(path.join(root,'data/project.json'),'utf8'));
 if(!p.tested.length||!p.compatibility.some(x=>x.confidence.includes('untested'))||!p.modelSources.length)throw new Error('Missing evidence/source matrix');
-for(const name of ['Tyria-Elora-Balanced.ini','Tyria-Elora-Quality-DepthTest.ini']){const s=fs.readFileSync(path.join(root,'presets',name),'utf8');if(!s.includes('Techniques='))throw new Error('Missing preset techniques');}
+for(const name of ['Tyria-Universal-Lite.ini','Tyria-Elora-Balanced.ini','Tyria-Elora-Quality-DepthTest.ini','Tyria-NVIDIA-RTX50-Neural.ini']){const s=fs.readFileSync(path.join(root,'presets',name),'utf8');if(!s.includes('Techniques='))throw new Error('Missing preset techniques');}
+for(const name of ['Install-NvidiaRtx50.ps1','Uninstall-NvidiaRtx50.ps1','Show-HardwareSupport.ps1']){if(!fs.existsSync(path.join(root,'scripts',name)))throw new Error('Missing variant script '+name);}
 console.log(`Publication boundary audit passed: ${count} text/source files. No proprietary binary payloads or private paths detected.`);
-
