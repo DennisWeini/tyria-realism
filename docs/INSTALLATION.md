@@ -4,6 +4,16 @@ This preview keeps optional third-party components separate. Close GW2 before ch
 
 ## AMD neural rendering (RX 9070 XT tested)
 
+### Quick start for RX 9070 XT
+
+1. While the Nexus archive is under automated review, download `TyriaRealism-0.10.0-preview.1-toolkit.zip` from the [matching GitHub release](https://github.com/DennisWeini/tyria-realism/releases/tag/v0.10.0-preview.1) and compare it with `SHA256SUMS.txt`.
+2. Extract the ZIP completely. Close GW2, then run `Setup.cmd` from the extracted folder.
+3. Choose **AMD RX 9000 neural**. Select `Gw2-64.exe` when asked and follow the source prompt. The default own-DLL route accepts only a recognized, unchanged, NVIDIA-signed `nvngx_dlssnr.dll`; the optional RHI source is third-party and is explained in `MODEL-SOURCES.md`.
+4. Start GW2. Press **F6** to compare neural processing on/off, **F5** to create comparison captures, and **Home** to open ReShade.
+5. If you also want a stronger visual grade, close GW2 and run `Setup.cmd` again to install **Universal Lite**, **Balanced**, or **Quality**. Add one profile at a time and compare it before stacking more effects.
+
+The RX 9070 XT path is the only neural route live-tested by this project. It is experimental external/image processing, not native GW2 DLSS Super Resolution, FSR4, frame generation, or a texture replacement.
+
 1. Download a versioned toolkit ZIP from GitHub Releases or the matching Nexus file. Extract it completely. Keep this folder for uninstalling.
 2. Run `Setup.cmd`. Select your GW2 executable and the desired dependency source. The default own-DLL path accepts only recognized unchanged files with valid NVIDIA Authenticode. The optional RHI route downloads from a third party, not NVIDIA; read `MODEL-SOURCES.md`.
 3. The installer downloads one pinned DLSSNR-AMD package, checks its SHA256, calls its installer and applies a preset. No model is bundled. Do not disable antivirus or replace protected game files.
@@ -43,3 +53,4 @@ Do not run the older session-specific experimental rollback scripts on an unrela
 ## Vortex
 
 The release includes a `_TyriaRealism` folder intended to be placed beside `Gw2-64.exe`. Vortex game discovery/support and deployment method depend on your installed extension; automatic support is not claimed for every Vortex setup. Enable/deploy the folder, then run `Setup.cmd` inside it. A manual extracted installation is supported by executable selection. Always uninstall the runtime before disabling/removing the toolkit in Vortex.
+
