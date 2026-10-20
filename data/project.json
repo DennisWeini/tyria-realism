@@ -5,7 +5,7 @@
   "status": "Experimental preview; individual components tested, full new-install matrix incomplete",
   "repository": "https://github.com/DennisWeini/tyria-realism",
   "nexus": "https://www.nexusmods.com/guildwars2/mods/7",
-  "nexusStatus": "The current Nexus archive is quarantined for automated review. Until Nexus clears it, use the matching GitHub release download and verify SHA256SUMS.txt.",
+  "nexusStatus": "Nexus has hidden the mod for manual moderation review. Do not treat the Nexus file as available or attempt to bypass that review. This repository provides the requested source code, build steps and checksums for inspection.",
   "site": "https://dennisweini.github.io/tyria-realism/",
   "description": "A reversible graphics toolkit for Guild Wars 2: low-cost SDR/ReShade looks, an experimental AMD RDNA4 neural path and a guarded NVIDIA RTX 50 feeder preparation.",
   "tested": [
