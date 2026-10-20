@@ -6,7 +6,7 @@ This preview keeps optional third-party components separate. Close GW2 before ch
 
 ### Quick start for RX 9070 XT
 
-1. While the Nexus archive is under automated review, download `TyriaRealism-0.10.0-preview.1-toolkit.zip` from the [matching GitHub release](https://github.com/DennisWeini/tyria-realism/releases/tag/v0.10.0-preview.1) and compare it with `SHA256SUMS.txt`.
+1. Download only from a distribution channel that is currently available. The Nexus file is hidden for manual moderation review; do not attempt to bypass that review. The public GitHub repository contains the source, reproducible build steps and `SHA256SUMS.txt` for inspection.
 2. Extract the ZIP completely. Close GW2, then run `Setup.cmd` from the extracted folder.
 3. Choose **AMD RX 9000 neural**. Select `Gw2-64.exe` when asked and follow the source prompt. The default own-DLL route accepts only a recognized, unchanged, NVIDIA-signed `nvngx_dlssnr.dll`; the optional RHI source is third-party and is explained in `MODEL-SOURCES.md`.
 4. Start GW2. Press **F6** to compare neural processing on/off, **F5** to create comparison captures, and **Home** to open ReShade.
