@@ -1,10 +1,11 @@
 {
   "name": "Tyria Realism",
   "version": "0.10.0-preview.1",
-  "updated": "2026-10-19",
+  "updated": "2026-10-20",
   "status": "Experimental preview; individual components tested, full new-install matrix incomplete",
   "repository": "https://github.com/DennisWeini/tyria-realism",
   "nexus": "https://www.nexusmods.com/guildwars2/mods/7",
+  "nexusStatus": "The current Nexus archive is quarantined for automated review. Until Nexus clears it, use the matching GitHub release download and verify SHA256SUMS.txt.",
   "site": "https://dennisweini.github.io/tyria-realism/",
   "description": "A reversible graphics toolkit for Guild Wars 2: low-cost SDR/ReShade looks, an experimental AMD RDNA4 neural path and a guarded NVIDIA RTX 50 feeder preparation.",
   "tested": [
@@ -42,3 +43,4 @@
     ,{"name":"RTX 20/30/40 modified NR DLL","url":"https://discord.com/invite/renodx","status":"DLSS5-Feeder currently points users to the RenoDX Discord DLSS5 channel. There is no stable public artifact and redistribution license verified by this project, so it is neither mirrored nor auto-downloaded."}
   ]
 }
+
