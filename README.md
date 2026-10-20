@@ -6,9 +6,11 @@ A reversible graphics toolkit for Guild Wars 2: low-cost SDR/ReShade looks, an e
 
 [Nexus mod](https://www.nexusmods.com/guildwars2/mods/7) · [Project page](https://dennisweini.github.io/tyria-realism/) · [Downloads](https://github.com/DennisWeini/tyria-realism/releases) · [Report a problem](https://github.com/DennisWeini/tyria-realism/issues)
 
+> **Download notice:** The current Nexus archive is quarantined for automated review. Until Nexus clears it, use the matching GitHub release download and verify SHA256SUMS.txt.
+
 ## Start here
 
-Download a versioned release, extract it completely and run **Setup.cmd** with GW2 closed. Visual setup needs an existing reviewed ReShade installation. Neural setup is optional, hardware-specific and may cost substantial GPU time.
+Download a versioned release, extract it completely and run **Setup.cmd** with GW2 closed. **RX 9070 XT users should choose AMD RX 9000 neural.** After the neural setup works, run Setup again only if you want to add one visual profile: Universal Lite, Balanced or Quality. Visual setup needs an existing reviewed ReShade installation. Neural setup is optional, hardware-specific and may cost substantial GPU time.
 
 Read [installation and rollback](docs/INSTALLATION.md), [hardware matrix](docs/COMPATIBILITY.md), [NVIDIA variants](docs/NVIDIA-VARIANTS.md) and [model sources](docs/MODEL-SOURCES.md). No NVIDIA DLLs, model weights, game assets or third-party binaries are bundled.
 
@@ -33,3 +35,4 @@ The NVIDIA installer and upstream packages passed static and isolated validation
 Windows/.NET 9 developer check: `dotnet run --project src/TyriaLab -c Release -- selftest`. Publication boundary: `node tools/audit.mjs`. Release: `scripts/Build-Release.ps1`.
 
 [Third-party notices](THIRD-PARTY-NOTICES.md) · [MIT license for original code](LICENSE)
+
