@@ -1,14 +1,17 @@
 [center][size=6][b]TYRIA REALISM[/b][/size]
-Experimental graphics toolkit · 0.10.0-preview.1 · updated 2026-10-19[/center]
+Experimental graphics toolkit · 0.10.0-preview.1 · updated 2026-10-20[/center]
 
 [b]CURRENT SOURCE AND DOWNLOADS[/b]
 [url=https://github.com/DennisWeini/tyria-realism]GitHub[/url] | [url=https://github.com/DennisWeini/tyria-realism/releases]Downloads[/url] | [url=https://dennisweini.github.io/tyria-realism/]Project page[/url] | [url=https://github.com/DennisWeini/tyria-realism/blob/main/docs/COMPATIBILITY.md]Hardware matrix[/url]
+
+[b]DOWNLOAD NOTICE[/b]
+The current Nexus archive is quarantined for automated review. Until Nexus clears it, use the matching GitHub release download and verify SHA256SUMS.txt.
 
 [b]VARIANTS[/b]
 Universal Lite is the low-cost visual profile for AMD, NVIDIA and Intel candidates. Balanced adds bloom; Quality adds depth-based AO. The AMD RDNA4 neural route was tested on RX9070XT. RTX50 now has a guarded DLSS5-Feeder preparation, but no NVIDIA/GW2 live test by this project. RTX20/30/40 neural rendering currently requires an external modified proprietary NVIDIA NR DLL and remains manual, unsupported research.
 
 [b]INSTALL[/b]
-Close GW2, extract the current toolkit and run Setup.cmd. Vortex deploys the _TyriaRealism folder; runtime installation remains a separate reversible step. Existing ReShade with add-on support is required for visual and RTX50 routes.
+Close GW2, extract the current toolkit and run Setup.cmd. On RX9070XT choose AMD RX 9000 neural. Start GW2 and use F6 for neural on/off, F5 for paired captures and Home for ReShade. If you also want a stronger visual grade, close GW2 and run Setup.cmd again to add only one of Universal Lite, Balanced or Quality. Vortex deploys the _TyriaRealism folder; runtime installation remains a separate reversible step. Existing ReShade with add-on support is required for visual and RTX50 routes.
 
 [b]NVIDIA FILES[/b]
 No NVIDIA DLL, model weights or neural consumer is hosted here. RTX50 users supply valid NVIDIA-signed nvngx_dlssnr.dll and nvngx_dlss.dll plus exactly one external consumer. The upstream Feeder directs RTX20/30/40 users to the RenoDX Discord for a modified DLL; Tyria Realism found no stable public release or redistribution grant and therefore does not mirror or auto-download it. [url=https://github.com/DennisWeini/tyria-realism/blob/main/docs/NVIDIA-VARIANTS.md]Full NVIDIA guide[/url].
@@ -21,3 +24,4 @@ Close GW2 and run Uninstall.cmd before removing the toolkit/Vortex deployment. I
 
 [b]CREDITS AND SAFETY[/b]
 No driver, antivirus setting or Gw2-64.exe is modified. No ArenaNet, NVIDIA or AMD endorsement/account approval is claimed. [url=https://github.com/DennisWeini/tyria-realism/blob/main/THIRD-PARTY-NOTICES.md]Third-party notices[/url].
+
