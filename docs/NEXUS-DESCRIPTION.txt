@@ -5,7 +5,7 @@ Experimental graphics toolkit · 0.10.0-preview.1 · updated 2026-10-20[/center]
 [url=https://github.com/DennisWeini/tyria-realism]GitHub[/url] | [url=https://github.com/DennisWeini/tyria-realism/releases]Downloads[/url] | [url=https://dennisweini.github.io/tyria-realism/]Project page[/url] | [url=https://github.com/DennisWeini/tyria-realism/blob/main/docs/COMPATIBILITY.md]Hardware matrix[/url]
 
 [b]DOWNLOAD NOTICE[/b]
-Nexus has hidden the mod for manual moderation review. Do not treat the Nexus file as available or attempt to bypass that review. This repository provides the requested source code, build steps and checksums for inspection.
+Nexus Mods Support has reviewed the files and approved the upload. Download the matching toolkit version from Nexus or GitHub Releases. This upload approval is not a certification of game compatibility or account safety.
 
 [b]VARIANTS[/b]
 Universal Lite is the low-cost visual profile for AMD, NVIDIA and Intel candidates. Balanced adds bloom; Quality adds depth-based AO. The AMD RDNA4 neural route was tested on RX9070XT. RTX50 now has a guarded DLSS5-Feeder preparation, but no NVIDIA/GW2 live test by this project. RTX20/30/40 neural rendering currently requires an external modified proprietary NVIDIA NR DLL and remains manual, unsupported research.
