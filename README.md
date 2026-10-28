@@ -6,7 +6,7 @@ A reversible graphics toolkit for Guild Wars 2: low-cost SDR/ReShade looks, an e
 
 [Nexus mod](https://www.nexusmods.com/guildwars2/mods/7) · [Project page](https://dennisweini.github.io/tyria-realism/) · [Downloads](https://github.com/DennisWeini/tyria-realism/releases) · [Report a problem](https://github.com/DennisWeini/tyria-realism/issues)
 
-> **Download notice:** Nexus has hidden the mod for manual moderation review. Do not treat the Nexus file as available or attempt to bypass that review. This repository provides the requested source code, build steps and checksums for inspection.
+> **Download notice:** Nexus Mods Support has reviewed the files and approved the upload. Download the matching toolkit version from Nexus or GitHub Releases. This upload approval is not a certification of game compatibility or account safety.
 
 ## Start here
 
