@@ -54,3 +54,9 @@ Do not run the older session-specific experimental rollback scripts on an unrela
 
 The release includes a `_TyriaRealism` folder intended to be placed beside `Gw2-64.exe`. Vortex game discovery/support and deployment method depend on your installed extension; automatic support is not claimed for every Vortex setup. Enable/deploy the folder, then run `Setup.cmd` inside it. A manual extracted installation is supported by executable selection. Always uninstall the runtime before disabling/removing the toolkit in Vortex.
 
+
+## Natural Personal (RX 9070 XT comparison preset)
+
+After installing the AMD neural route, close GW2 and choose option 7 in Setup.cmd. This applies the author's saved single-pass Natural look and backs up the previous neural configuration in .tyria-realism-backups.
+
+Natural style; intensity 0.85; local tone 0.50; local structure 0.90; transfer strength 0.85; colour strength 0.50; model resolution 60%; ACO/INT4 mixed. This changes neural settings only, leaving the active ReShade effects unchanged. It is a personal comparison preset, with no controlled FPS or image-quality result. The abandoned two-pass experiment is not included. To restore, close GW2 and copy the desired backed-up INI over dlssnr-amd.ini.
