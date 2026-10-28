@@ -65,4 +65,3 @@ Windows 11 x64; Isolated folders and current source build.
 - REST is not included or validated with the RenoDX experiment. Global effects may modify the HUD.
 - Do not combine multiple bloom, AO or sharpening stacks without a controlled comparison.
 - No ArenaNet endorsement or account/anti-cheat approval is claimed. Use is at the player's discretion.
-
