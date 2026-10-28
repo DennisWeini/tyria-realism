@@ -1,6 +1,6 @@
 # Tyria Realism
 
-**0.10.0-preview.1 · Experimental preview; individual components tested, full new-install matrix incomplete**
+**0.10.1-preview.1 · Experimental preview; individual components tested, full new-install matrix incomplete**
 
 A reversible graphics toolkit for Guild Wars 2: low-cost SDR/ReShade looks, an experimental AMD RDNA4 neural path and a guarded NVIDIA RTX 50 feeder preparation.
 
@@ -13,6 +13,10 @@ A reversible graphics toolkit for Guild Wars 2: low-cost SDR/ReShade looks, an e
 Download a versioned release, extract it completely and run **Setup.cmd** with GW2 closed. **RX 9070 XT users should choose AMD RX 9000 neural.** After the neural setup works, run Setup again only if you want to add one visual profile: Universal Lite, Balanced or Quality. Visual setup needs an existing reviewed ReShade installation. Neural setup is optional, hardware-specific and may cost substantial GPU time.
 
 Read [installation and rollback](docs/INSTALLATION.md), [hardware matrix](docs/COMPATIBILITY.md), [NVIDIA variants](docs/NVIDIA-VARIANTS.md) and [model sources](docs/MODEL-SOURCES.md). No NVIDIA DLLs, model weights, game assets or third-party binaries are bundled.
+
+## Natural Personal
+
+Setup option 7 applies the saved RX 9070 XT single-pass Natural preset after AMD neural installation. Intensity 0.85, model resolution 60%, with automatic backup. ReShade effects stay unchanged; controlled performance and quality testing is pending.
 
 ## Available variants
 
@@ -35,4 +39,3 @@ The NVIDIA installer and upstream packages passed static and isolated validation
 Windows/.NET 9 developer check: `dotnet run --project src/TyriaLab -c Release -- selftest`. Publication boundary: `node tools/audit.mjs`. Release: `scripts/Build-Release.ps1`.
 
 [Third-party notices](THIRD-PARTY-NOTICES.md) · [MIT license for original code](LICENSE)
-
