@@ -1,5 +1,5 @@
 [center][size=6][b]TYRIA REALISM[/b][/size]
-Experimental graphics toolkit · 0.10.0-preview.1 · updated 2026-10-20[/center]
+Experimental graphics toolkit · 0.10.1-preview.1 · updated 2026-10-20[/center]
 
 [b]CURRENT SOURCE AND DOWNLOADS[/b]
 [url=https://github.com/DennisWeini/tyria-realism]GitHub[/url] | [url=https://github.com/DennisWeini/tyria-realism/releases]Downloads[/url] | [url=https://dennisweini.github.io/tyria-realism/]Project page[/url] | [url=https://github.com/DennisWeini/tyria-realism/blob/main/docs/COMPATIBILITY.md]Hardware matrix[/url]
@@ -9,6 +9,9 @@ Nexus Mods Support has reviewed the files and approved the upload. Download the 
 
 [b]VARIANTS[/b]
 Universal Lite is the low-cost visual profile for AMD, NVIDIA and Intel candidates. Balanced adds bloom; Quality adds depth-based AO. The AMD RDNA4 neural route was tested on RX9070XT. RTX50 now has a guarded DLSS5-Feeder preparation, but no NVIDIA/GW2 live test by this project. RTX20/30/40 neural rendering currently requires an external modified proprietary NVIDIA NR DLL and remains manual, unsupported research.
+
+[b]NATURAL PERSONAL PRESET[/b]
+After AMD neural setup, close GW2 and choose Setup option 7. Single-pass Natural style, intensity 0.85 and 60% model resolution; previous settings are backed up. ReShade effects stay unchanged. Personal comparison preset; no controlled FPS or quality measurement.
 
 [b]INSTALL[/b]
 Close GW2, extract the current toolkit and run Setup.cmd. On RX9070XT choose AMD RX 9000 neural. Start GW2 and use F6 for neural on/off, F5 for paired captures and Home for ReShade. If you also want a stronger visual grade, close GW2 and run Setup.cmd again to add only one of Universal Lite, Balanced or Quality. Vortex deploys the _TyriaRealism folder; runtime installation remains a separate reversible step. Existing ReShade with add-on support is required for visual and RTX50 routes.
@@ -24,4 +27,3 @@ Close GW2 and run Uninstall.cmd before removing the toolkit/Vortex deployment. I
 
 [b]CREDITS AND SAFETY[/b]
 No driver, antivirus setting or Gw2-64.exe is modified. No ArenaNet, NVIDIA or AMD endorsement/account approval is claimed. [url=https://github.com/DennisWeini/tyria-realism/blob/main/THIRD-PARTY-NOTICES.md]Third-party notices[/url].
-
