@@ -7,7 +7,9 @@ echo 3 - AMD RX 9000 neural setup with optional RHI third-party download
 echo 4 - NVIDIA RTX 50 experimental neural preparation
 echo 5 - Show detected hardware and recommended path
 echo 6 - Check available releases (no automatic installation)
-choice /C 123456 /N /M "Choose 1-6: "
+echo 7 - Apply Natural Personal preset (existing AMD neural installation)
+choice /C 1234567 /N /M "Choose 1-7: "
+if errorlevel 7 goto natural
 if errorlevel 6 goto updates
 if errorlevel 5 goto hardware
 if errorlevel 4 goto nvidia
@@ -30,6 +32,9 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -STA -File "%~dp0scripts\Insta
 goto end
 :hardware
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\Show-HardwareSupport.ps1"
+goto end
+:natural
+powershell.exe -NoProfile -ExecutionPolicy Bypass -STA -File "%~dp0scripts\Set-NeuralPreset.ps1" -Preset NaturalPersonal
 goto end
 :updates
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\Check-Updates.ps1" -IncludePreview
