@@ -1,5 +1,5 @@
 param(
-    [ValidateSet('Efficient', 'Quality', 'Balanced', 'Cinematic', 'RSR1080p')][string]$Preset = 'Balanced',
+    [ValidateSet('Efficient', 'Quality', 'Balanced', 'Cinematic', 'RSR1080p', 'NaturalPersonal')][string]$Preset = 'Balanced',
     [string]$GameExe = ''
 )
 
@@ -24,6 +24,20 @@ if (-not (Test-Path -LiteralPath $ini -PathType Leaf) -or -not (Test-Path -Liter
 }
 
 $profiles = @{
+    NaturalPersonal = @{
+        Int4Mixed = @{ Enabled = '1' }
+        Network = @{ 'ACO Mode' = '1' }
+        RenoDX = @{
+            Enabled = '1'; NeuralUplift = '1'; NRPasses = '1'; NRStyle = '1';
+            NRIntensity = '0.85'; NRLocalTone = '0.50'; NRLocalStructure = '0.90';
+            NRTransferStrength = '0.85'; NRColorStrength = '0.50';
+            NRSkinStructure = '-1.00'; NRAutoMask = '1';
+            NRResolutionScale = '0.60'; NRFollowInputRes = '0';
+            NRStyleHighlightGuard = '0.30'; NRDetailStability = '1'; NRLookMode = '1';
+            NRLookStrength = '1.00'; NRLookTone = '0.95'; NRLookDetail = '1.10';
+            NRLookHalo = '0.15'; NRLookHaloBrightSide = '0.05'
+        }
+    }
     Efficient = @{
         Int4Mixed = @{ Enabled = '1' }
         Network = @{ 'ACO Mode' = '1' }
@@ -121,7 +135,10 @@ foreach ($sectionName in $wanted.Keys) {
 $iniHash = (Get-FileHash -LiteralPath $ini -Algorithm SHA256).Hash
 
 Write-Host "FERTIG: Neural-Preset $Preset ist für den nächsten GW2-Start aktiv." -ForegroundColor Green
-if ($Preset -eq 'Efficient') {
+if ($Preset -eq 'NaturalPersonal') {
+    Write-Host 'Natural Personal: ein Durchlauf, 60 Prozent Modellauflösung, Intensität 0.85.'
+    Write-Host 'Persönliches Vergleichspreset auf RX 9070 XT; keine kontrollierte FPS- oder Qualitätsmessung.'
+} elseif ($Preset -eq 'Efficient') {
     Write-Host 'Aktiv: 60 Prozent Modellauflösung, ACO und INT4 mixed; natürlicher Detail-Look.'
     Write-Host 'Dieses neue Profil ist noch nicht im echten GW2-Lauf vermessen.'
 } elseif ($Preset -eq 'Balanced') {
